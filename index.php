@@ -25,7 +25,7 @@ $form->onSubmit(function($form) use ($client) {
 
 
 $button1 = $app->add(['Button', 'Registration', 'green']);
-$button1->link('registretion.php');
+$button1->link('registration.php');
 
 $button2 = $app->add(['Button', 'Admin', 'blue']);
 $button2->link('check.php');

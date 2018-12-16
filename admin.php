@@ -1,6 +1,10 @@
 <?php
 require 'models.php';
 
+if (empty($_SESSION['hach'])) {
+  header('location: index.php');
+}
+
 $app = new \atk4\ui\App('Admin');
 $app->initLayout('Centered');
 
@@ -12,4 +16,4 @@ $crud2->setModel(new Bank_account($db));
 
 
 $button = $app->add(['Button','Log out','blue']);
-$button->link('index.php');
+$button->link('log_out.php');
