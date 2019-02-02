@@ -1,7 +1,7 @@
 <?php
 require 'models.php';
 
-if (empty($_SESSION['client_id'])) {
+if (!(isset($_SESSION['client_id']))) {
   header('location: index.php');
 }
 
@@ -22,5 +22,8 @@ $button1->link('new_account.php');
 $button2 = $app->add(['Button', 'Log out', 'blue']);
 $button2->link('log_out.php');
 
-$button3 = $app->add(['Button', 'money transfer', 'yellow']);
+$button3 = $app->add(['Button', 'Money transfer', 'yellow']);
 $button3->link('perevod.php');
+
+$button4 = $app->add(['Button', 'Bank account replenishment', 'grey']);
+$button4->link('izi_money.php');

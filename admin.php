@@ -1,7 +1,7 @@
 <?php
 require 'models.php';
 
-if (empty($_SESSION['hach'])) {
+if (isset($_SESSION['client_id'])) {
   header('location: index.php');
 }
 

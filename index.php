@@ -1,6 +1,8 @@
 <?php
 require 'models.php';
 
+//echo $_SESSION['answer'];
+
 $app = new \atk4\ui\App('Dinidele');
 $app->initLayout('Centered');
 

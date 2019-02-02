@@ -5,10 +5,10 @@ $account = new Bank_account($db);
 
 
 $str = 'LV69RIXA';
+
 for ($i=1; $i <=13; $i++) {
   $str = $str.rand(0,9);
 }
-
 
 $account['account_number']=$str;
 $account['money']=0;
