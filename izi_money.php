@@ -3,6 +3,9 @@
 require 'models.php';
 
 $_SESSION['ch'] = 0;
+unset($_SESSION['t']);
+unset($_SESSION['timer']);
+unset($_SESSION['flag']);
 
 if (!(isset($_SESSION['client_id']))) {
   header('location: index.php');

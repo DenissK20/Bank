@@ -24,9 +24,7 @@ $form->onSubmit(function($form) use($db) {
     $bank1['money']= $bank1['money']+10;
     $bank1->save();
 
-
-
-    return [$form->success('Yeaboyyy, you earned 10€!'), sleep(2), new \atk4\ui\jsExpression('document.location="main.php"')];
+    return new \atk4\ui\jsExpression('document.location="main.php"');
   } else {
     return $form->error('answer', 'You need to go back to school!!! ', $_SESSION['result']);
   }
