@@ -11,6 +11,8 @@ if (!(isset($_SESSION['client_id']))) {
   header('location: index.php');
 }
 
+$_SESSION['flag2']=false;
+
 $app = new \atk4\ui\App('Want to have easy money? :3');
 $app->initLayout('Centered');
 
