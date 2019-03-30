@@ -31,10 +31,12 @@ $form->onSubmit(function($form) use($db) {
     }
   });
 
-$user = new Bank_account($db);
+$user = new Client($db);
 $user->load($_SESSION['client_id']);
+$bank= new Bank_account($db);
+$bank->loadBy('account_number',$form->model['sender']);
 
-  if ($form->model['sender'] == $user['account_number']) {
+  if ($bank['client_id']==$_SESSION['client_id']) {
   $bank1->loadBy('account_number',$form->model['sender']);
       $bank2->loadBy('account_number',$form->model['receiver']);
       if($_SESSION['check']){
