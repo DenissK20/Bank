@@ -12,7 +12,7 @@ $form->setModel(new Client($db),['login','password']);
 $form->buttonSave->set('Sign in');
 $form->onSubmit(function($form) use ($client) {
   $client->tryLoadBy('login',$form->model['login']);
-  If ($client['password'] == $form->model['password']) {
+  if ($client['password'] == $form->model['password']) {
     $_SESSION['client_id'] = $client->id;
     return new \atk4\ui\jsExpression('document.location="main.php"');
   } else {

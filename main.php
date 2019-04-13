@@ -27,3 +27,9 @@ $button3->link('perevod.php');
 
 $button4 = $app->add(['Button', 'Bank account replenishment', 'grey']);
 $button4->link('izi_money.php');
+
+$button5 = $app->add(['Button', 'Money converter', 'teal']);
+$button5->link('converter.php');
+
+$button6 = $app->add(['Button', 'Fast credit!', 'purple']);
+$button6->link('credit.php');

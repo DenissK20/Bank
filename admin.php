@@ -14,6 +14,9 @@ $crud1->setModel(new Client($db));
 $crud2 = $app->layout->add('CRUD');
 $crud2->setModel(new Bank_account($db));
 
+$crud3 = $app->layout->add('CRUD');
+$crud3->setModel(new Currency($db));
+
 
 $button = $app->add(['Button','Log out','blue']);
 $button->link('log_out.php');
