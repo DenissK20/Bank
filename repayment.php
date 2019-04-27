@@ -2,7 +2,7 @@
 
 require 'models.php';
 
-if (isset($_SESSION['client_id'])) {
+if (!(isset($_SESSION['client_id']))) {
   header('location: index.php');
 }
 

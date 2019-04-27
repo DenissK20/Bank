@@ -34,5 +34,5 @@ $button5->link('converter.php');
 $button6 = $app->add(['Button', 'Fast credit!', 'purple']);
 $button6->link('credit.php');
 
-$button6 = $app->add(['Button', 'Loan repayment', 'teal']);
-$button6->link('credit.php');
+$button7 = $app->add(['Button', 'Loan repayment', 'teal']);
+$button7->link('repayment.php');
