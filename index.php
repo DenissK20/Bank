@@ -1,7 +1,7 @@
 <?php
 require 'models.php';
 
-//echo $_SESSION['answer'];
+
 
 $app = new \atk4\ui\App('Dinidele');
 $app->initLayout('Centered');
@@ -16,7 +16,7 @@ $form->onSubmit(function($form) use ($client) {
     $_SESSION['client_id'] = $client->id;
     return new \atk4\ui\jsExpression('document.location="main.php"');
   } else {
-    $person->unload();
+    $client->unload();
     $er = (new \atk4\ui\jsNotify('No such user.'));
     $er->setColor('red');
     return $er;
