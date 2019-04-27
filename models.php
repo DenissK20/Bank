@@ -26,6 +26,16 @@ function init() {
   parent::init();
   $this->addField('account_number');
   $this->addField('money',['type'=>'money']);
+  $this->addField('credit',['type'=>'money']);
   $this->hasOne('client_id', new Client)->addTitle();
+}
+}
+
+class Currency extends \atk4\data\Model {
+  public $table = 'currency';
+function init() {
+  parent:: init();
+  $this->addField('name');
+  $this->addField('coef');
 }
 }
