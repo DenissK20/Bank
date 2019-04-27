@@ -13,7 +13,7 @@ $app->initLayout('Centered');
 
 $account = $user ->ref('Bank_account');
 $grid = $app->add('Grid');
-$grid->setModel($account,['account_number','money']);
+$grid->setModel($account,['account_number','money','credit']);
 $grid->addDecorator('account_number', new \atk4\ui\TableColumn\Link('notrand.php?clients_id={$id}'));
 
 $button1 = $app->add(['Button', 'Add new account', 'green']);
@@ -32,4 +32,7 @@ $button5 = $app->add(['Button', 'Money converter', 'teal']);
 $button5->link('converter.php');
 
 $button6 = $app->add(['Button', 'Fast credit!', 'purple']);
+$button6->link('credit.php');
+
+$button6 = $app->add(['Button', 'Loan repayment', 'teal']);
 $button6->link('credit.php');

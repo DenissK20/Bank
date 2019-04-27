@@ -8,11 +8,18 @@ if (!(isset($_SESSION['client_id']))) {
 $app = new \atk4\ui\App('Money transfer');
 $app->initLayout('Centered');
 
-$form = $app->layout->add('Form');
-$form->addField('sender');
-$form->addField('receiver');
-$form->addField('money');
+$bank_account = new Bank_account($db);
+  foreach ($bank_account as $testc) {
+    $c[] = $testc['account_number'];
+  }
 
+  $n = new \atk4\data\Model;
+    $n->addField('sender', ['enum'=>$c]);
+    $n->addField('receiver', ['enum'=>$c]);
+    $n->addField('money');
+
+$form = $app->layout->add('Form');
+$form->setModel($n);
 $form->onSubmit(function($form) use($db) {
 
   $bank1= new Bank_account($db);
@@ -53,3 +60,8 @@ $bank->loadBy('account_number',$form->model['sender']);
   }
 
 });
+
+$app->add(["ui"=>"hidden divider"]);
+
+$button2 = $app->add(['Button','Back','green']);
+$button2->link('main.php');
