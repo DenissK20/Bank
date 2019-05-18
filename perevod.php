@@ -9,12 +9,16 @@ $app = new \atk4\ui\App('Money transfer');
 $app->initLayout('Centered');
 
 $bank_account = new Bank_account($db);
+
   foreach ($bank_account as $testc) {
     $c[] = $testc['account_number'];
+    if ($testc['client_id']==$_SESSION['client_id']) {
+      $d[] = $testc['account_number'];
+    }
   }
 
   $n = new \atk4\data\Model;
-    $n->addField('sender', ['enum'=>$c]);
+    $n->addField('sender', ['enum'=>$d]);
     $n->addField('receiver', ['enum'=>$c]);
     $n->addField('money');
 
@@ -40,12 +44,12 @@ $form->onSubmit(function($form) use($db) {
 
 $user = new Client($db);
 $user->load($_SESSION['client_id']);
-$bank= new Bank_account($db);
-$bank->loadBy('account_number',$form->model['sender']);
 
-  if ($bank['client_id']==$_SESSION['client_id']) {
-  $bank1->loadBy('account_number',$form->model['sender']);
-      $bank2->loadBy('account_number',$form->model['receiver']);
+$bank2->loadBy('account_number',$form->model['receiver']);
+$bank1->loadBy('account_number',$form->model['sender']);
+
+
+  if ($bank1['client_id']==$_SESSION['client_id']) {
       if($_SESSION['check']){
         $tr = new \atk4\ui\jsExpression('document.location = "main.php"');
         return $tr;
